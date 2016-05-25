@@ -15,4 +15,13 @@
  */
 class C4B_Freeproduct_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    public function getDeleteUrl($_item) {
+        return Mage::getModel('core/url')->getUrl(
+            'freeproduct/item/delete',
+            array(
+                'id'=>$_item->getId(),
+                Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => Mage::helper('core/url')->getEncodedUrl()
+            )
+        );
+    }
 }

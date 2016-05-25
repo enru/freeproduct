@@ -282,6 +282,8 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
     <td class="a-center">
         <?php if (!$_item->getIsFreeProduct()) : ?>    
             <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
+        <?php else: ?>    
+            <a href="<?php echo Mage::helper('freeproduct')->getDeleteUrl($_item); ?>" title="<?php echo $this->__('Remove free item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove free item')?></a>
         <?php endif; ?>        
     </td>
 </tr>

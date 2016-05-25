@@ -224,7 +224,20 @@ class C4B_Freeproduct_Model_Observer
             'code' => 'freeproduct_uniqid',
             'value' => uniqid(null, true)
         )));
-        
+
+        $quoteItem = static::_checkNotIgnored($quoteItem);
+
         return $quoteItem;
+    }
+
+    protected static function _checkNotIgnored($quoteItem) {
+        $session = Mage::getSingleton('checkout/session');
+        // uncomment to reset
+        // $session->setIgnoredFreeproducts(array());
+        $ignored = $session->getIgnoredFreeproducts();
+        if(!is_array($ignored)) $ignored= array();
+        if(in_array($quoteItem->getSku(), $ignored)) $quoteItem = null;
+        return $quoteItem;
+        
     }
 }

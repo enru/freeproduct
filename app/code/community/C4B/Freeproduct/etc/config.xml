@@ -109,6 +109,23 @@
                     </freeproduct>
                 </observers>
             </sales_quote_product_add_after>
+            <freeproduct_freeitem_loaded>
+                <observers>
+                    <freeproduct>
+                        <class>freeproduct/observer</class>
+                        <method>checkForIgnoredItems</method>
+                    </freeproduct>
+                </observers>
+            </freeproduct_freeitem_loaded>
         </events>
+        <routers>
+            <freeproduct>
+                <use>standard</use>
+                <args>
+                    <module>C4B_Freeproduct</module>
+                    <frontName>freeproduct</frontName>
+                </args>
+            </freeproduct>
+        </routers> 
     </frontend>
 </config>

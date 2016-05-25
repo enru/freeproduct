@@ -20,6 +20,7 @@ class C4B_Freeproduct_Helper_Data extends Mage_Core_Helper_Abstract
             'freeproduct/item/delete',
             array(
                 'id'=>$_item->getId(),
+                'form_key'=> Mage::getSingleton('core/session')->getFormKey(),
                 Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED => Mage::helper('core/url')->getEncodedUrl()
             )
         );
